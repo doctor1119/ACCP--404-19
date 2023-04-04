@@ -16,15 +16,15 @@ AllowPortNetNames=0
 AllowSheetEntryNetNames=1
 AppendSheetNumberToLocalNets=0
 NetlistSinglePinNets=0
-DefaultConfiguration=Sources
+DefaultConfiguration=Default - All Constraints
 UserID=0xFFFFFFFF
 DefaultPcbProtel=1
 DefaultPcbPcad=0
 ReorderDocumentsOnCompile=1
 NameNetsHierarchically=0
 PowerPortNamesTakePriority=0
-AutoSheetNumbering=1
-AutoCrossReferences=1
+AutoSheetNumbering=0
+AutoCrossReferences=0
 PushECOToAnnotationFile=1
 DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
@@ -41,24 +41,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=Схема принципиальная ПУК-404-19.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=IRLNEZQC
-
-[Document2]
-DocumentPath=ProjectLibrary\A75AD.SchLib
+DocumentPath=A75AD.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -74,8 +57,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=TLWQJRXO
 
-[Document3]
-DocumentPath=ProjectLibrary\ATMEGA328P.PcbLib
+[Document2]
+DocumentPath=ATMEGA328P.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -89,10 +72,10 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MTYLYOHQ
+DocumentUniqueId=
 
-[Document4]
-DocumentPath=ProjectLibrary\ATMEGA328P.SchLib
+[Document3]
+DocumentPath=ATMEGA328P.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -108,8 +91,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NXSLIIDS
 
-[Document5]
-DocumentPath=ProjectLibrary\connector.PcbLib
+[Document4]
+DocumentPath=connector.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -123,44 +106,27 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=KPROYHTF
+DocumentUniqueId=
+
+[Document5]
+DocumentPath=PL2303HX.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [Document6]
-DocumentPath=ProjectLibrary\SMD0402.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=RYGPUEMU
-
-[Document7]
-DocumentPath=ProjectLibrary\PL2303HX.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=NIEOHBAD
-
-[Document8]
-DocumentPath=ProjectLibrary\PL2303HX.SchLib
+DocumentPath=PL2303HX.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -176,8 +142,8 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=ASLUXBOD
 
-[Document9]
-DocumentPath=ProjectLibrary\ЛМ75А.PcbLib
+[Document7]
+DocumentPath=SMD0402.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -191,10 +157,44 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=MTOOOBWI
+DocumentUniqueId=
+
+[Document8]
+DocumentPath=ЛМ75А.PcbLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
+[Document9]
+DocumentPath=ATMEGA328P-AU\ATMEGA328P-AU.LibPkg
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
 
 [Document10]
-DocumentPath=ProjectLibrary\ATMEGA328P-AU\ATMEGA328P-AU.SchLib
+DocumentPath=ATMEGA328P-AU\ATMEGA328P-AU.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -211,24 +211,7 @@ GenerateClassCluster=0
 DocumentUniqueId=LQPYKTTQ
 
 [Document11]
-DocumentPath=ProjectLibrary\ATMEGA328P-AU\QFP80P900X900X120-32N.PcbLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=YDIJAVFO
-
-[Document12]
-DocumentPath=ProjectLibrary\Project Outputs for Библеотека компонентов для проекта ПУК-404-19\Библеотека компонентов для проекта ПУК-404-19.IntLib
+DocumentPath=ATMEGA328P-AU\QFP80P900X900X120-32N.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -243,50 +226,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
-
-[Document13]
-DocumentPath=ProjectLibrary\Коннекторы.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=QXVSDPYT
-
-[Document14]
-DocumentPath=resistor.SchLib
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=PWXEHLAI
-
-[Configuration1]
-Name=Sources
-ParameterCount=0
-ConstraintFileCount=0
-ReleaseItemId=
-Variant=[No Variations]
-OutputJobsCount=0
-ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
-ConfigurationType=Source
 
 [OutputGroup1]
 Name=Netlist Outputs
@@ -403,12 +342,12 @@ PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate
 [OutputGroup3]
 Name=Documentation Outputs
 Description=
-TargetPrinter=Virtual Printer
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputType1=Composite
 OutputName1=Composite Drawing
 OutputDocumentPath1=
-OutputVariantName1=[No Variations]
+OutputVariantName1=
 OutputDefault1=0
 PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType2=PCB 3D Print
@@ -426,7 +365,7 @@ PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 OutputType4=PCB Print
 OutputName4=PCB Prints
 OutputDocumentPath4=
-OutputVariantName4=[No Variations]
+OutputVariantName4=
 OutputDefault4=0
 PageOptions4=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType5=PCBDrawing
@@ -438,7 +377,7 @@ PageOptions5=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 OutputType6=PCBLIB Print
 OutputName6=PCBLIB Prints
 OutputDocumentPath6=
-OutputVariantName6=[No Variations]
+OutputVariantName6=
 OutputDefault6=0
 PageOptions6=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType7=PDF3D
@@ -508,13 +447,13 @@ PageOptions1=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintS
 OutputType2=CompositeDrill
 OutputName2=Composite Drill Drawing
 OutputDocumentPath2=
-OutputVariantName2=[No Variations]
+OutputVariantName2=
 OutputDefault2=0
 PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType3=Drill
 OutputName3=Drill Drawing/Guides
 OutputDocumentPath3=
-OutputVariantName3=[No Variations]
+OutputVariantName3=
 OutputDefault3=0
 PageOptions3=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType4=Final
@@ -531,17 +470,17 @@ OutputDefault5=0
 OutputType6=Gerber X2
 OutputName6=Gerber X2 Files
 OutputDocumentPath6=
-OutputVariantName6=[No Variations]
+OutputVariantName6=
 OutputDefault6=0
 OutputType7=IPC2581
 OutputName7=IPC-2581 Files
 OutputDocumentPath7=
-OutputVariantName7=[No Variations]
+OutputVariantName7=
 OutputDefault7=0
 OutputType8=Mask
 OutputName8=Solder/Paste Mask Prints
 OutputDocumentPath8=
-OutputVariantName8=[No Variations]
+OutputVariantName8=
 OutputDefault8=0
 PageOptions8=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType9=NC Drill
@@ -557,7 +496,7 @@ OutputDefault10=0
 OutputType11=Plane
 OutputName11=Power-Plane Prints
 OutputDocumentPath11=
-OutputVariantName11=[No Variations]
+OutputVariantName11=
 OutputDefault11=0
 PageOptions11=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 OutputType12=Test Points
@@ -1177,8 +1116,8 @@ L16=WWWWNWWNWWWNWWWNW
 L17=WNNNNNNNWNNNWWWWN
 
 [Annotate]
-SortOrder=1
-SortLocation=1
+SortOrder=3
+SortLocation=0
 ReplaceSubparts=0
 MatchParameter1=Comment
 MatchStrictly1=1
@@ -1202,102 +1141,6 @@ SelectedOnly=0
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
-ComponentLibIdentifierKind0=Library Name And Type
-ComponentLibraryIdentifier0=A75AD.SchLib
-ComponentDesignItemID0=LM75AD
-ComponentSymbolReference0=LM75AD
-ComponentUpdate0=1
-ComponentIsDeviceSheet0=0
-ComponentLibIdentifierKind1=Library Name And Type
-ComponentLibraryIdentifier1=ATMEGA328P.SchLib
-ComponentDesignItemID1=atmega328p
-ComponentSymbolReference1=atmega328p
-ComponentUpdate1=1
-ComponentIsDeviceSheet1=0
-ComponentLibIdentifierKind2=Library Name And Type
-ComponentLibraryIdentifier2=Connectors.SchLib
-ComponentDesignItemID2=X_4
-ComponentSymbolReference2=X_4
-ComponentUpdate2=1
-ComponentIsDeviceSheet2=0
-ComponentLibIdentifierKind3=Library Name And Type
-ComponentLibraryIdentifier3=Miscellaneous Connectors.IntLib
-ComponentDesignItemID3=Header 4
-ComponentSymbolReference3=Header 4
-ComponentUpdate3=1
-ComponentIsDeviceSheet3=0
-ComponentLibIdentifierKind4=Library Name And Type
-ComponentLibraryIdentifier4=Miscellaneous Connectors.IntLib
-ComponentDesignItemID4=Header 5
-ComponentSymbolReference4=Header 5
-ComponentUpdate4=1
-ComponentIsDeviceSheet4=0
-ComponentLibIdentifierKind5=Library Name And Type
-ComponentLibraryIdentifier5=Miscellaneous Connectors.IntLib
-ComponentDesignItemID5=Header 6
-ComponentSymbolReference5=Header 6
-ComponentUpdate5=1
-ComponentIsDeviceSheet5=0
-ComponentLibIdentifierKind6=Library Name And Type
-ComponentLibraryIdentifier6=Miscellaneous Devices.IntLib
-ComponentDesignItemID6=2N3904
-ComponentSymbolReference6=2N3904
-ComponentUpdate6=1
-ComponentIsDeviceSheet6=0
-ComponentLibIdentifierKind7=Library Name And Type
-ComponentLibraryIdentifier7=Miscellaneous Devices.IntLib
-ComponentDesignItemID7=Cap Pol1
-ComponentSymbolReference7=Cap Pol1
-ComponentUpdate7=1
-ComponentIsDeviceSheet7=0
-ComponentLibIdentifierKind8=Library Name And Type
-ComponentLibraryIdentifier8=Miscellaneous Devices.IntLib
-ComponentDesignItemID8=Cap
-ComponentSymbolReference8=Cap
-ComponentUpdate8=1
-ComponentIsDeviceSheet8=0
-ComponentLibIdentifierKind9=Library Name And Type
-ComponentLibraryIdentifier9=Miscellaneous Devices.IntLib
-ComponentDesignItemID9=LED0
-ComponentSymbolReference9=LED0
-ComponentUpdate9=1
-ComponentIsDeviceSheet9=0
-ComponentLibIdentifierKind10=Library Name And Type
-ComponentLibraryIdentifier10=Miscellaneous Devices.IntLib
-ComponentDesignItemID10=Res1
-ComponentSymbolReference10=Res1
-ComponentUpdate10=1
-ComponentIsDeviceSheet10=0
-ComponentLibIdentifierKind11=Library Name And Type
-ComponentLibraryIdentifier11=Miscellaneous Devices.IntLib
-ComponentDesignItemID11=Res2
-ComponentSymbolReference11=Res2
-ComponentUpdate11=1
-ComponentIsDeviceSheet11=0
-ComponentLibIdentifierKind12=Library Name And Type
-ComponentLibraryIdentifier12=Miscellaneous Devices.IntLib
-ComponentDesignItemID12=SW-PB
-ComponentSymbolReference12=SW-PB
-ComponentUpdate12=1
-ComponentIsDeviceSheet12=0
-ComponentLibIdentifierKind13=Library Name And Type
-ComponentLibraryIdentifier13=Passive.SchLib
-ComponentDesignItemID13=R
-ComponentSymbolReference13=R
-ComponentUpdate13=1
-ComponentIsDeviceSheet13=0
-ComponentLibIdentifierKind14=Library Name And Type
-ComponentLibraryIdentifier14=PL2303HX.SchLib
-ComponentDesignItemID14=PL2303HX
-ComponentSymbolReference14=PL2303HX
-ComponentUpdate14=1
-ComponentIsDeviceSheet14=0
-ComponentLibIdentifierKind15=Library Name And Type
-ComponentLibraryIdentifier15=Simulation Generic Components.IntLib
-ComponentDesignItemID15=Crystal
-ComponentSymbolReference15=Crystal
-ComponentUpdate15=1
-ComponentIsDeviceSheet15=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1311,129 +1154,6 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=Comment
-ParameterUpdate0=1
-ParameterName1=Component Kind
-ParameterUpdate1=1
-ParameterName2=ComponentLink1Description
-ParameterUpdate2=1
-ParameterName3=ComponentLink1URL
-ParameterUpdate3=1
-ParameterName4=ComponentLink2Description
-ParameterUpdate4=1
-ParameterName5=ComponentLink2URL
-ParameterUpdate5=1
-ParameterName6=DatasheetVersion
-ParameterUpdate6=1
-ParameterName7=Description
-ParameterUpdate7=1
-ParameterName8=F0
-ParameterUpdate8=1
-ParameterName9=LatestRevisionDate
-ParameterUpdate9=1
-ParameterName10=LatestRevisionNote
-ParameterUpdate10=1
-ParameterName11=Library Reference
-ParameterUpdate11=1
-ParameterName12=PackageDescription
-ParameterUpdate12=1
-ParameterName13=PackageReference
-ParameterUpdate13=1
-ParameterName14=PackageVersion
-ParameterUpdate14=1
-ParameterName15=Published
-ParameterUpdate15=1
-ParameterName16=Publisher
-ParameterUpdate16=1
-ParameterName17=Q
-ParameterUpdate17=1
-ParameterName18=R
-ParameterUpdate18=1
-ParameterName19=SimulationGenericComponent
-ParameterUpdate19=1
-ParameterName20=Value
-ParameterUpdate20=1
-ModelTypeGroup0=PCBLIB
-ModelTypeUpdate0=1
-ModelType0=PCBLIB
-ModelName0=ATmega328/P
-ModelUpdate0=1
-ModelType1=PCBLIB
-ModelName1=AXIAL-0.3
-ModelUpdate1=1
-ModelType2=PCBLIB
-ModelName2=AXIAL-0.4
-ModelUpdate2=1
-ModelType3=PCBLIB
-ModelName3=HDR1X4
-ModelUpdate3=1
-ModelType4=PCBLIB
-ModelName4=HDR1X5
-ModelUpdate4=1
-ModelType5=PCBLIB
-ModelName5=HDR1X6
-ModelUpdate5=1
-ModelType6=PCBLIB
-ModelName6=LED-0
-ModelUpdate6=1
-ModelType7=PCBLIB
-ModelName7=PL2303HX
-ModelUpdate7=1
-ModelType8=PCBLIB
-ModelName8=R_0402
-ModelUpdate8=1
-ModelType9=PCBLIB
-ModelName9=RAD-0.3
-ModelUpdate9=1
-ModelType10=PCBLIB
-ModelName10=RB7.6-15
-ModelUpdate10=1
-ModelType11=PCBLIB
-ModelName11=SPST-2
-ModelUpdate11=1
-ModelType12=PCBLIB
-ModelName12=TO-92A
-ModelUpdate12=1
-ModelType13=PCBLIB
-ModelName13=YX-XH-4
-ModelUpdate13=1
-ModelType14=PCBLIB
-ModelName14=ЛМ75А
-ModelUpdate14=1
-ModelTypeGroup1=SI
-ModelTypeUpdate1=1
-ModelType15=SI
-ModelName15=2N3904
-ModelUpdate15=1
-ModelType16=SI
-ModelName16=Cap
-ModelUpdate16=1
-ModelType17=SI
-ModelName17=Cap Pol
-ModelUpdate17=1
-ModelType18=SI
-ModelName18=Connector
-ModelUpdate18=1
-ModelType19=SI
-ModelName19=Res
-ModelUpdate19=1
-ModelTypeGroup2=SIM
-ModelTypeUpdate2=1
-ModelType20=SIM
-ModelName20=2N3904
-ModelUpdate20=1
-ModelType21=SIM
-ModelName21=CAP
-ModelUpdate21=1
-ModelType22=SIM
-ModelName22=CRYSTAL
-ModelUpdate22=1
-ModelType23=SIM
-ModelName23=LED0
-ModelUpdate23=1
-ModelType24=SIM
-ModelName24=RESISTOR
-ModelUpdate24=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
@@ -1448,7 +1168,4 @@ ComparisonOptions2=Kind=Component Class|MinPercent=75|MinMatch=3|ShowMatch=0|Use
 ComparisonOptions3=Kind=Rule|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
 ComparisonOptions4=Kind=Differential Pair|MinPercent=50|MinMatch=1|ShowMatch=0|UseName=0|InclAllRules=0
 ComparisonOptions5=Kind=Structure Class|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
-
-[SmartPDF]
-PageOptions=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 
