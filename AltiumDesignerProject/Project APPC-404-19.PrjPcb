@@ -279,7 +279,7 @@ GenerateClassCluster=0
 DocumentUniqueId=PWXEHLAI
 
 [Document15]
-DocumentPath=PCB1.PcbDoc
+DocumentPath=Топология печатной платы.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
