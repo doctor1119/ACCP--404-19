@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=U1 Old Footprint=PL2303HX New Footprint=SO-28W
+Change component parameters: Designator = "U3" ("U3"); Footprint = "27_DIP_7.62mm"; UniqueID = "\FIGHJMMB" ("\FIGHJMMB")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.ozon.ru/product/atmega-328p-pu-dip-28-562350561/?asb=TZbXKS0CTfsKQLkp5ffbTmeda30GXBY85qpBD8tD8Io%253D&asb2=MLGyQau1HUWU11WD0qJ7FBRFOofzRBZv7juPw_6zpsj0f8bE3ZWgIlXxFbLaY9XD&avtc=1&avte=2&avts=1680884657&keywords=atmega328P+dip-28&sh=zeQ5ehK32Q"; VariantName = "[No Variations]"
