@@ -1,18 +1,13 @@
-﻿//#include "temp_sensor.h"
-//#include "uart.h"
-#include <avr/io.h>
+﻿#include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
 #include "save.h"
 
-
-#define F_CPU 16000000UL
-#define F_SCL 100000UL
 //#define LM75A_ADDR 0x48
 #define ADDR_W 0b10010001
 #define ADDR_R 0b10010000
 
-float current_temp = 0;
+int16_t current_temp = 0;
 
 void temp_sensor_init(void) {
 	TWSR = 0;
@@ -71,12 +66,11 @@ ISR(TIMER1_COMPA_vect) {
 
 void Write_to_USART(float celsius_temperature)
 {
-	char temp_str[10];
-	sprintf(temp_str, "TEMP:%d\n", celsius_temperature);
-	for (uint8_t i = 0; temp_str[i] != '\0'; i++) {
-		uart_send(temp_str[i]);
-	}
-	}
+	celsius_temperature = celsius_temperature/1;
+	uint8_t temp = (uint8_t)celsius_temperature;
+	send(temp);
+	
+}
 
 	void temp_sensor_read(void) {
 		
@@ -104,7 +98,7 @@ void Write_to_USART(float celsius_temperature)
 		float celsius_temperature = (float)temperature * 0.5;
 		
 		current_temp = celsius_temperature;
-
+		
 		Write_to_USART(celsius_temperature);
 		
 	}
