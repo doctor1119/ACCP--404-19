@@ -1,0 +1,79 @@
+Removed Pin From Net: NetName=NetLED4_1 Pin=R11-2
+Removed Member From Class: ClassName=Схема принципиальная ПУК-404-19 Member=R11
+Change Component Footprint: Designator=C1 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C4 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C5 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C6 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C7 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C8 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=C11 Old Footprint=C_0805 New Footprint=C_1206
+Change Component Footprint: Designator=R7 Old Footprint=R_0805 New Footprint=R_1206
+Change Component Footprint: Designator=R8 Old Footprint=R_0805 New Footprint=R_1206
+Change Component Footprint: Designator=R9 Old Footprint=R_0805 New Footprint=R_1206
+Change Component Footprint: Designator=U2 Old Footprint=ЛМ75А New Footprint=TSSOP8
+Change Component Comment : Designator=R12 Old Comment=35 Om New Comment=33 Om
+Change Component Comment : Designator=H1 Old Comment=LED New Comment=TSAL6200
+Change Component Comment : Designator=VT1 Old Comment=NPN_BEC New Comment=BC547
+Change component parameters: Designator = "C1" ("C1"); Footprint = "C_0805"; UniqueID = "\BACLFZFV" ("\BACLFZFV")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C4" ("C4"); Footprint = "C_0805"; UniqueID = "\GIPEXNHM" ("\GIPEXNHM")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C7" ("C7"); Footprint = "C_0805"; UniqueID = "\RQSWXZDE" ("\RQSWXZDE")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C8" ("C8"); Footprint = "C_0805"; UniqueID = "\QGKMOIEU" ("\QGKMOIEU")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C11" ("C11"); Footprint = "C_0805"; UniqueID = "\TYYASLJR" ("\TYYASLJR")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED1" ("LED1"); Footprint = "ledrad3mm"; UniqueID = "\OAOTHXGG" ("\OAOTHXGG")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012gd-green"; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED3" ("LED3"); Footprint = "ledrad3mm"; UniqueID = "\DZMBXVWB" ("\DZMBXVWB")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012ed"; VariantName = "[No Variations]"
+Change component parameters: Designator = "LED4" ("LED4"); Footprint = "ledrad3mm"; UniqueID = "\JLBZAARA" ("\JLBZAARA")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012ed"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R7" ("R7"); Footprint = "R_0805"; UniqueID = "\LFHMLFKG" ("\LFHMLFKG")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R8" ("R8"); Footprint = "R_0805"; UniqueID = "\AOCTYXCN" ("\AOCTYXCN")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R9" ("R9"); Footprint = "R_0805"; UniqueID = "\KLXCTXAW" ("\KLXCTXAW")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R10" ("R10"); Footprint = "R_1206"; UniqueID = "\FRMGGKSA" ("\FRMGGKSA")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-4.3-kom-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R12" ("R12"); Footprint = "R_1206"; UniqueID = "\CCZIYOOA" ("\CCZIYOOA")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-33-om-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U3" ("U3"); Footprint = "27_DIP_7.62mm"; UniqueID = "\FIGHJMMB" ("\FIGHJMMB")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.ozon.ru/product/atmega-328p-pu-dip-28-562350561/?asb=I9xK3DYnsq%252F6IhyX3W8scHwjgmDiM8Kzbmwyx3X6VIk%253D&asb2=VfizZ9RKUUordInhR9mkRyCkW2b-XBna7EclAgALVhcc5Z76v75_VL0e9uKFy7yB&avtc=1&avte=2&avts=1680886458&keywords=atmega+328p&sh=zeQ5esD1SA"; VariantName = "[No Variations]"
+Change component parameters: Designator = "H1" ("H1"); Footprint = "ledrad3mm"; UniqueID = "\VILDASAL" ("\VILDASAL")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/tsal6200?from=suggest_product"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U1" ("U1"); Footprint = "SO-28W"; UniqueID = "\XMZBBASX" ("\XMZBBASX")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://market.yandex.ru/product--mikroskhema-pl2303hx/101671693841?text=pl2303%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&cpc=bNKuNdDTZsqVRNy2uKVv1msD_OtO4zXlbxS3fj54qsreC0dGgIJAi4LfFARQF2DgdkCkHKwVvOfzqoQEYqosxJEXxp3WeedEOXoYck00HBR2kZwJYLRH-UzkT0PLe5991N8MS10oqEhLd1ZiK6d1Ruqlij-cSaPQ7uADsWt2oNhLhCuggyBAXmVDBIzF7xIC-kwi6xp3bTE%2C&sku=101671693841&do-waremd5=ySBio8NQJaHlgnQ9xQDWig&cpa=1&nid=61856"; VariantName = "[No Variations]"
+Change component parameters: Designator = "U2" ("U2"); Footprint = "ЛМ75А"; UniqueID = "\HWURVJDG" ("\HWURVJDG")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/lm75ad.118?from=suggest_product"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VT1" ("VT1"); Footprint = "TO-92-CBE"; UniqueID = "\DIBNKHRO" ("\DIBNKHRO")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/8007169940"; VariantName = "[No Variations]"
+Added Component: Designator=R?(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-300-om-1"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetLED4_1 Pin=R?-2
+Added Pin To Net: NetName=NetR?_1 Pin=R?-1
+Added Pin To Net: NetName=NetR?_1 Pin=U3-19
+Added Pin To Net: NetName=NetR?_1 Pin=X2-4
+Added Net: Name=NetR?_1
+Added Member To Class: ClassName=Схема принципиальная ПУК-404-19 Member=Component R? 300Om

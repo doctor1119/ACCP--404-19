@@ -1,0 +1,238 @@
+Added Component: Designator=C1(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Added Component: Designator=C2(C_0805)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/27587"; VariantName = "[No Variations]"
+Added Component: Designator=C3(C_0805)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/27587"; VariantName = "[No Variations]"
+Added Component: Designator=C4(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Added Component: Designator=C5(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/560852172"; VariantName = "[No Variations]"
+Added Component: Designator=C6(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/560852172"; VariantName = "[No Variations]"
+Added Component: Designator=C7(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Added Component: Designator=C8(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Added Component: Designator=C11(C_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/9000697437"; VariantName = "[No Variations]"
+Added Component: Designator=H1(ledrad3mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/tsal6200?from=suggest_product"; VariantName = "[No Variations]"
+Added Component: Designator=LED1(ledrad3mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012gd-green"; VariantName = "[No Variations]"
+Added Component: Designator=LED2(ledrad3mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012yd"; VariantName = "[No Variations]"
+Added Component: Designator=LED3(ledrad3mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012ed"; VariantName = "[No Variations]"
+Added Component: Designator=LED4(ledrad3mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/gnl-3012ed"; VariantName = "[No Variations]"
+Added Component: Designator=R1(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-27-om-1"; VariantName = "[No Variations]"
+Added Component: Designator=R2(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-27-om-1"; VariantName = "[No Variations]"
+Added Component: Designator=R3(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-1.5-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R4(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-1.5-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R5(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-1.5-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R6(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-1.5-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R7(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R8(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R9(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-10-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R10(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-4.3-kom-1"; VariantName = "[No Variations]"
+Added Component: Designator=R11(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-300-om-1"; VariantName = "[No Variations]"
+Added Component: Designator=R12(R_1206)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-33-om-1"; VariantName = "[No Variations]"
+Added Component: Designator=U1(SO-28W)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://market.yandex.ru/product--mikroskhema-pl2303hx/101671693841?text=pl2303%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C&cpc=bNKuNdDTZsqVRNy2uKVv1msD_OtO4zXlbxS3fj54qsreC0dGgIJAi4LfFARQF2DgdkCkHKwVvOfzqoQEYqosxJEXxp3WeedEOXoYck00HBR2kZwJYLRH-UzkT0PLe5991N8MS10oqEhLd1ZiK6d1Ruqlij-cSaPQ7uADsWt2oNhLhCuggyBAXmVDBIzF7xIC-kwi6xp3bTE%2C&sku=101671693841&do-waremd5=ySBio8NQJaHlgnQ9xQDWig&cpa=1&nid=61856"; VariantName = "[No Variations]"
+Added Component: Designator=U2(TSSOP8)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/lm75ad.118?from=suggest_product"; VariantName = "[No Variations]"
+Added Component: Designator=U3(27_DIP_7.62mm)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.ozon.ru/product/atmega-328p-pu-dip-28-562350561/?asb=I9xK3DYnsq%252F6IhyX3W8scHwjgmDiM8Kzbmwyx3X6VIk%253D&asb2=VfizZ9RKUUordInhR9mkRyCkW2b-XBna7EclAgALVhcc5Z76v75_VL0e9uKFy7yB&avtc=1&avte=2&avts=1680886458&keywords=atmega+328p&sh=zeQ5esD1SA"; VariantName = "[No Variations]"
+Added Component: Designator=VT1(TO-92-CBE)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/8007169940"; VariantName = "[No Variations]"
+Added Component: Designator=X1(USB_TypeB_Tyco)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/usbb-1j"; VariantName = "[No Variations]"
+Added Component: Designator=X2(PLD-6)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/pld-6"; VariantName = "[No Variations]"
+Added Component: Designator=Z1(HC-49H)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/12mhz-hc-49s"; VariantName = "[No Variations]"
+Added Component: Designator=Z2(HC-49H)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/16mhz-hc-49s"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.3V Pin=C11-2
+Added Pin To Net: NetName=3.3V Pin=R3-1
+Added Pin To Net: NetName=3.3V Pin=R4-1
+Added Pin To Net: NetName=3.3V Pin=R5-1
+Added Pin To Net: NetName=3.3V Pin=R6-1
+Added Pin To Net: NetName=3.3V Pin=U1-4
+Added Pin To Net: NetName=3.3V Pin=U1-17
+Added Net: Name=3.3V
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=LED2-2
+Added Pin To Net: NetName=GND Pin=LED4-2
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Pin To Net: NetName=GND Pin=U1-18
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=GND Pin=U1-25
+Added Pin To Net: NetName=GND Pin=U1-26
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=GND Pin=U2-5
+Added Pin To Net: NetName=GND Pin=U2-6
+Added Pin To Net: NetName=GND Pin=U2-7
+Added Pin To Net: NetName=GND Pin=U3-8
+Added Pin To Net: NetName=GND Pin=U3-22
+Added Pin To Net: NetName=GND Pin=VT1-2
+Added Pin To Net: NetName=GND Pin=X1-4
+Added Pin To Net: NetName=GND Pin=X2-1
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC2_1 Pin=C2-1
+Added Pin To Net: NetName=NetC2_1 Pin=U1-28
+Added Pin To Net: NetName=NetC2_1 Pin=Z1-2
+Added Net: Name=NetC2_1
+Added Pin To Net: NetName=NetC3_1 Pin=C3-1
+Added Pin To Net: NetName=NetC3_1 Pin=U1-27
+Added Pin To Net: NetName=NetC3_1 Pin=Z1-1
+Added Net: Name=NetC3_1
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=U3-10
+Added Pin To Net: NetName=NetC5_2 Pin=Z2-2
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=NetC6_2 Pin=U3-9
+Added Pin To Net: NetName=NetC6_2 Pin=Z2-1
+Added Net: Name=NetC6_2
+Added Pin To Net: NetName=NetC7_1 Pin=C7-1
+Added Pin To Net: NetName=NetC7_1 Pin=U3-21
+Added Net: Name=NetC7_1
+Added Pin To Net: NetName=NetH1_1 Pin=H1-1
+Added Pin To Net: NetName=NetH1_1 Pin=R12-1
+Added Net: Name=NetH1_1
+Added Pin To Net: NetName=NetH1_2 Pin=H1-2
+Added Pin To Net: NetName=NetH1_2 Pin=VT1-3
+Added Net: Name=NetH1_2
+Added Pin To Net: NetName=NetLED1_1 Pin=LED1-1
+Added Pin To Net: NetName=NetLED1_1 Pin=R5-2
+Added Net: Name=NetLED1_1
+Added Pin To Net: NetName=NetLED1_2 Pin=LED1-2
+Added Pin To Net: NetName=NetLED1_2 Pin=U1-1
+Added Pin To Net: NetName=NetLED1_2 Pin=U3-3
+Added Net: Name=NetLED1_2
+Added Pin To Net: NetName=NetLED2_1 Pin=LED2-1
+Added Pin To Net: NetName=NetLED2_1 Pin=R4-2
+Added Net: Name=NetLED2_1
+Added Pin To Net: NetName=NetLED3_1 Pin=LED3-1
+Added Pin To Net: NetName=NetLED3_1 Pin=R6-2
+Added Net: Name=NetLED3_1
+Added Pin To Net: NetName=NetLED3_2 Pin=LED3-2
+Added Pin To Net: NetName=NetLED3_2 Pin=U1-5
+Added Pin To Net: NetName=NetLED3_2 Pin=U3-2
+Added Net: Name=NetLED3_2
+Added Pin To Net: NetName=NetLED4_1 Pin=LED4-1
+Added Pin To Net: NetName=NetLED4_1 Pin=R11-2
+Added Net: Name=NetLED4_1
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-16
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=X1-2
+Added Net: Name=NetR1_2
+Added Pin To Net: NetName=NetR2_1 Pin=R2-1
+Added Pin To Net: NetName=NetR2_1 Pin=U1-15
+Added Net: Name=NetR2_1
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=R3-2
+Added Pin To Net: NetName=NetR2_2 Pin=X1-3
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR7_1 Pin=R7-1
+Added Pin To Net: NetName=NetR7_1 Pin=U2-2
+Added Pin To Net: NetName=NetR7_1 Pin=U3-28
+Added Net: Name=NetR7_1
+Added Pin To Net: NetName=NetR8_1 Pin=R8-1
+Added Pin To Net: NetName=NetR8_1 Pin=U2-1
+Added Pin To Net: NetName=NetR8_1 Pin=U3-27
+Added Net: Name=NetR8_1
+Added Pin To Net: NetName=NetR9_2 Pin=R9-2
+Added Pin To Net: NetName=NetR9_2 Pin=U3-1
+Added Pin To Net: NetName=NetR9_2 Pin=X2-2
+Added Net: Name=NetR9_2
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetR10_1 Pin=U3-11
+Added Net: Name=NetR10_1
+Added Pin To Net: NetName=NetR10_2 Pin=R10-2
+Added Pin To Net: NetName=NetR10_2 Pin=VT1-1
+Added Net: Name=NetR10_2
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=U3-19
+Added Pin To Net: NetName=NetR11_1 Pin=X2-4
+Added Net: Name=NetR11_1
+Added Pin To Net: NetName=NetU3_17 Pin=U3-17
+Added Pin To Net: NetName=NetU3_17 Pin=X2-3
+Added Net: Name=NetU3_17
+Added Pin To Net: NetName=NetU3_18 Pin=U3-18
+Added Pin To Net: NetName=NetU3_18 Pin=X2-6
+Added Net: Name=NetU3_18
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C4-2
+Added Pin To Net: NetName=VCC Pin=C8-2
+Added Pin To Net: NetName=VCC Pin=R7-2
+Added Pin To Net: NetName=VCC Pin=R8-2
+Added Pin To Net: NetName=VCC Pin=R9-1
+Added Pin To Net: NetName=VCC Pin=R12-2
+Added Pin To Net: NetName=VCC Pin=U1-20
+Added Pin To Net: NetName=VCC Pin=U2-8
+Added Pin To Net: NetName=VCC Pin=U3-7
+Added Pin To Net: NetName=VCC Pin=U3-20
+Added Pin To Net: NetName=VCC Pin=X1-1
+Added Pin To Net: NetName=VCC Pin=X2-5
+Added Net: Name=VCC
+Added Class: Name=Схема принципиальная ПУК-404-19
+Added Room: Name=Схема принципиальная ПУК-404-19

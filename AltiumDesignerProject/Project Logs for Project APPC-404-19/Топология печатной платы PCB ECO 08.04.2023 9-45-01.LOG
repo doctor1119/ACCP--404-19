@@ -1,0 +1,5 @@
+Change Component Designator: OldDesignator=R? NewDesignator=R11
+Change component parameters: Designator = "VT1" ("VT1"); Footprint = "TO-92-CBE"; UniqueID = "\DIBNKHRO" ("\DIBNKHRO")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product0/8007169940"; VariantName = "[No Variations]"
+Change Net Name : Old Net Name=NetR?_1 New Net Name=NetR11_1
