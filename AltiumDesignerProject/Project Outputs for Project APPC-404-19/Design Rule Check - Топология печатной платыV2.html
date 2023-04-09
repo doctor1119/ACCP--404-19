@@ -1,0 +1,604 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">09.04.2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:33:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc" class="file"><acronym title="D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc">D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">84</td></tr>
+</table>
+</td>
+</table><a name="IDG54X5RQBQSNBIZLBFUAQVT3ZHHBOGGN3NVRPNAKO1UJDJZKOIBQJ"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDKY52SYN4UJOLJANJ0FL1NSEJUCLI3GAZZQ2HS3MZV55AK0WWCHLB">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBPICWDFHW00ND0RKPD4IA4SK2I3ERZT41MCBP0I1NRGO0JJNZCML">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZJ14GSXEUTNQFDITOMWMIQODGKEEBHIKMCT4CDPBQ5IW4HJSP0MK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">12</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID05OZP3IX5FYDPFM2PA1K3045DJRJH113AF1JD0IL33AVRXCZHWPO">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1CO3MSHOF0IXEC3CLW3BK2WPZHCRO3JNKLP2FBNCWYRDBLGCEWMD">Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZBSUEC2VAXCOO5I2BINCYUWUMO1ZRQ1Y41SOMVCU5DXW15Z2N0AM">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0G3MHEZSYIVVIJLZMLCWQKV2SLYH5N5C0ZXCBPHJT1KWRFXBO3WP">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3AII3SXGHXQBFQIYFQDJZ4BM2OWJTW4SPLW2TPG1TM352SJQO34C">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSXHEPW30CBUGJ0TKL1KYAF2DCEXANXNR4BVJYPBMD2WKUEOD0JE">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFJJQPEL2YQVJP0XLVZL2NUVR4F1N04Z5JYPE11OHUBPQN5LW2RTO">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">38</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAH0LZK4N4PHJPWKAKSWNODOJEPLJMBNIUQDDWBEBMLFH5NJBBKHC">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU4GJ5OH2ZTDKBVBTLSB1NJUK2G4G2GJTGFG0RLBMKWNBNA4Y3ZLL">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">3</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDODXK3YKKD4GMJ4LSJS0DR5LVGFGXEEVFAHEC5UUH21BXXQNVTEC">Room Схема принципиальная ПУК-404-19 (Bounding Region = (28.822mm, 150.254mm, 79.622mm, 175.654mm) (InComponentClass('Схема принципиальная ПУК-404-19'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVBGFQSWCIERFHU5Q0I4ZKJSZLSJUGKK2QS3KTJ1OLAXMCEJ0E4H">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">84</td>
+</tr>
+</table><br><a name="IDKY52SYN4UJOLJANJ0FL1NSEJUCLI3GAZZQ2HS3MZV55AK0WWCHLB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.966mil|Location2.X=1511.216mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.966mil|Location2.X=1511.216mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True">Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad U2-1(-14.9mm,3.45mm) on Bottom Layer And Pad U2-2(-15.55mm,3.45mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1474.375mil|Location2.X=1485.625mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1474.375mil|Location2.X=1485.625mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True">Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad U2-2(-15.55mm,3.45mm) on Bottom Layer And Pad U2-3(-16.2mm,3.45mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.784mil|Location2.X=1460.034mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.784mil|Location2.X=1460.034mil|Location1.Y=4092.485mil|Location2.Y=4103.735mil|Absolute=True">Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad U2-3(-16.2mm,3.45mm) on Bottom Layer And Pad U2-4(-16.85mm,3.45mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1476.186mil|Location2.X=1487.436mil|Location1.Y=4127.918mil|Location2.Y=4139.168mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1476.186mil|Location2.X=1487.436mil|Location1.Y=4127.918mil|Location2.Y=4139.168mil|Absolute=True">Clearance Constraint: (0.242mm &lt; 0.254mm) Between Pad U2-3(-16.2mm,3.45mm) on Bottom Layer And Track (-15.581mm,3.431mm)(-15.581mm,4.002mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1476.154mil|Location2.X=1487.404mil|Location1.Y=4123.284mil|Location2.Y=4141.561mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1476.154mil|Location2.X=1487.404mil|Location1.Y=4123.284mil|Location2.Y=4141.561mil|Absolute=True">Clearance Constraint: (0.25mm &lt; 0.254mm) Between Pad U2-3(-16.2mm,3.45mm) on Bottom Layer And Track (-15.581mm,4.002mm)(-15.569mm,4.014mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.966mil|Location2.X=1511.216mil|Location1.Y=4269.65mil|Location2.Y=4280.9mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1499.966mil|Location2.X=1511.216mil|Location1.Y=4269.65mil|Location2.Y=4280.9mil|Absolute=True">Clearance Constraint: (0.15mm &lt; 0.254mm) Between Pad U2-7(-15.55mm,7.95mm) on Bottom Layer And Pad U2-8(-14.9mm,7.95mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDZJ14GSXEUTNQFDITOMWMIQODGKEEBHIKMCT4CDPBQ5IW4HJSP0MK"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.276mil|Location2.X=1725.142mil|Location1.Y=3913.008mil|Location2.Y=4060.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1646.276mil|Location2.X=1725.142mil|Location1.Y=3913.008mil|Location2.Y=4060.772mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C11-1(-10.65mm,1.45mm) on Bottom Layer And Pad U1-21(-10.59mm,-0.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1479.937mil|Location2.X=1553.882mil|Location1.Y=3746.669mil|Location2.Y=3991.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1479.937mil|Location2.X=1553.882mil|Location1.Y=3746.669mil|Location2.Y=3991.874mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-2(-15.275mm,-4.925mm) on Bottom Layer And Pad U1-18(-14.4mm,-0.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1814.116mil|Location2.X=2014.512mil|Location1.Y=3525.213mil|Location2.Y=3646.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1814.116mil|Location2.X=2014.512mil|Location1.Y=3525.213mil|Location2.Y=3646.106mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C4-1(-6.787mm,-9.483mm) on Top Layer And Pad C2-2(-3.1mm,-10.85mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1689.583mil|Location2.X=1861.486mil|Location1.Y=3567.24mil|Location2.Y=3646.106mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1689.583mil|Location2.X=1861.486mil|Location1.Y=3567.24mil|Location2.Y=3646.106mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C3-2(-9.85mm,-9.6mm) on Bottom Layer And Pad C4-1(-6.787mm,-9.483mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1553.882mil|Location1.Y=3913.008mil|Location2.Y=4147.386mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1553.882mil|Location1.Y=3913.008mil|Location2.Y=4147.386mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-4(-16.85mm,3.45mm) on Bottom Layer And Pad U1-18(-14.4mm,-0.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1888.071mil|Location2.X=2090.433mil|Location1.Y=3852.441mil|Location2.Y=4005.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1888.071mil|Location2.X=2090.433mil|Location1.Y=3852.441mil|Location2.Y=4005.197mil|Absolute=True">Un-Routed Net Constraint: Net NetC3_1 Between Pad U1-27(-2.97mm,-0.7mm) on Top Layer And Track (-2.91mm,-3.39mm)(-2.91mm,-1.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1938.071mil|Location2.X=2140.433mil|Location1.Y=3852.441mil|Location2.Y=4005.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1938.071mil|Location2.X=2140.433mil|Location1.Y=3852.441mil|Location2.Y=4005.197mil|Absolute=True">Un-Routed Net Constraint: Net NetC2_1 Between Pad U1-28(-1.7mm,-0.7mm) on Top Layer And Track (-1.64mm,-4.14mm)(-1.64mm,-1.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1788.071mil|Location2.X=2154.803mil|Location1.Y=4222.52mil|Location2.Y=4386.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1788.071mil|Location2.X=2154.803mil|Location1.Y=4222.52mil|Location2.Y=4386.102mil|Absolute=True">Un-Routed Net Constraint: Net 3.3V Between Pad U1-4(-5.51mm,8.7mm) on Top Layer And Track (-1.275mm,2.8mm)(-1.275mm,7.775mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1455.457mil|Location1.Y=4084.268mil|Location2.Y=4324.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1455.457mil|Location1.Y=4084.268mil|Location2.Y=4324.551mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-4(-16.85mm,3.45mm) on Bottom Layer And Pad U2-5(-16.85mm,7.95mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1481.047mil|Location1.Y=4261.433mil|Location2.Y=4324.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1427.772mil|Location2.X=1481.047mil|Location1.Y=4261.433mil|Location2.Y=4324.551mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-5(-16.85mm,7.95mm) on Bottom Layer And Pad U2-6(-16.2mm,7.95mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1453.362mil|Location2.X=1506.638mil|Location1.Y=4261.433mil|Location2.Y=4324.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1453.362mil|Location2.X=1506.638mil|Location1.Y=4261.433mil|Location2.Y=4324.551mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U2-6(-16.2mm,7.95mm) on Bottom Layer And Pad U2-7(-15.55mm,7.95mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2667.599mil|Location2.X=2920.551mil|Location1.Y=4499.291mil|Location2.Y=3338.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2667.599mil|Location2.X=2920.551mil|Location1.Y=4499.291mil|Location2.Y=3338.858mil|Absolute=True">Un-Routed Net Constraint: Net NetR9_2 Between Pad U3-1(16.83mm,15.73mm) on Multi-Layer And Track (14.2mm,-18.825mm)(18.175mm,-18.825mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSXHEPW30CBUGJ0TKL1KYAF2DCEXANXNR4BVJYPBMD2WKUEOD0JE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.84mil|Location2.X=1644.09mil|Location1.Y=4679.493mil|Location2.Y=4690.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.84mil|Location2.X=1644.09mil|Location1.Y=4679.493mil|Location2.Y=4690.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.254mm) Between Pad VT1-1(-11.85mm,17.275mm) on Multi-Layer And Pad VT1-2(-11.85mm,18.545mm) on Multi-Layer [Top Solder] Mask Sliver [0.067mm] / [Bottom Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.84mil|Location2.X=1644.09mil|Location1.Y=4629.493mil|Location2.Y=4640.743mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.84mil|Location2.X=1644.09mil|Location1.Y=4629.493mil|Location2.Y=4640.743mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.067mm &lt; 0.254mm) Between Pad VT1-1(-11.85mm,17.275mm) on Multi-Layer And Pad VT1-3(-11.85mm,16.005mm) on Multi-Layer [Top Solder] Mask Sliver [0.067mm] / [Bottom Solder] Mask Sliver [0.067mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1707.643mil|Location2.X=1718.893mil|Location1.Y=3447.997mil|Location2.Y=3459.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1707.643mil|Location2.X=1718.893mil|Location1.Y=3447.997mil|Location2.Y=3459.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.171mm &lt; 0.254mm) Between Pad X1-1(-9.95mm,-12.37mm) on Multi-Layer And Pad X1-4(-9.95mm,-14.37mm) on Multi-Layer [Top Solder] Mask Sliver [0.171mm] / [Bottom Solder] Mask Sliver [0.171mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1609.217mil|Location2.X=1620.467mil|Location1.Y=3447.997mil|Location2.Y=3459.247mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1609.217mil|Location2.X=1620.467mil|Location1.Y=3447.997mil|Location2.Y=3459.247mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.171mm &lt; 0.254mm) Between Pad X1-2(-12.45mm,-12.37mm) on Multi-Layer And Pad X1-3(-12.45mm,-14.37mm) on Multi-Layer [Top Solder] Mask Sliver [0.171mm] / [Bottom Solder] Mask Sliver [0.171mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDFJJQPEL2YQVJP0XLVZL2NUVR4F1N04Z5JYPE11OHUBPQN5LW2RTO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2148.192mil|Location2.X=2155.858mil|Location1.Y=4457.172mil|Location2.Y=4464.839mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2148.192mil|Location2.X=2155.858mil|Location1.Y=4457.172mil|Location2.Y=4464.839mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (-0.525mm,12.75mm) on Top Overlay And Pad LED1-1(0.727mm,12.75mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1347.768mil|Location2.X=1355.435mil|Location1.Y=4647.566mil|Location2.Y=4655.232mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1347.768mil|Location2.X=1355.435mil|Location1.Y=4647.566mil|Location2.Y=4655.232mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (-17.35mm,17.275mm) on Top Overlay And Pad H1-1(-18.602mm,17.275mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.981mil|Location2.X=2154.647mil|Location1.Y=3754.849mil|Location2.Y=3762.516mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2146.981mil|Location2.X=2154.647mil|Location1.Y=3754.849mil|Location2.Y=3762.516mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (2.95mm,-5.4mm) on Top Overlay And Pad LED2-1(1.698mm,-5.4mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.07mil|Location2.X=2283.736mil|Location1.Y=4111.228mil|Location2.Y=4118.895mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2276.07mil|Location2.X=2283.736mil|Location1.Y=4111.228mil|Location2.Y=4118.895mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (4.975mm,5.15mm) on Top Overlay And Pad LED4-1(4.975mm,3.898mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1952.326mil|Location2.X=1959.992mil|Location1.Y=4456.188mil|Location2.Y=4463.855mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1952.326mil|Location2.X=1959.992mil|Location1.Y=4456.188mil|Location2.Y=4463.855mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (-5.5mm,12.725mm) on Top Overlay And Pad LED3-1(-4.248mm,12.725mm) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565.157mil|Location2.X=2572.824mil|Location1.Y=4037.147mil|Location2.Y=4044.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2565.157mil|Location2.X=2572.824mil|Location1.Y=4037.147mil|Location2.Y=4044.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad C8-1(11.525mm,0.704mm) on Top Layer And Text "C7" (11.024mm,0.025mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1342.215mil|Location2.X=1349.882mil|Location1.Y=4644.15mil|Location2.Y=4651.817mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1342.215mil|Location2.X=1349.882mil|Location1.Y=4644.15mil|Location2.Y=4651.817mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad H1-1(-18.602mm,17.275mm) on Multi-Layer And Text "R12" (-15.469mm,15.697mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.052mil|Location2.X=1492.755mil|Location1.Y=4681.055mil|Location2.Y=4692.305mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1480.052mil|Location2.X=1492.755mil|Location1.Y=4681.055mil|Location2.Y=4692.305mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad H1-2(-16.098mm,17.275mm) on Multi-Layer And Text "." (-16.055mm,17.77mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1492.167mil|Location2.X=1499.833mil|Location1.Y=4640.495mil|Location2.Y=4648.162mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1492.167mil|Location2.X=1499.833mil|Location1.Y=4640.495mil|Location2.Y=4648.162mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad H1-2(-16.098mm,17.275mm) on Multi-Layer And Text "R12" (-15.469mm,15.697mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.972mil|Location2.X=1466.638mil|Location1.Y=4641.17mil|Location2.Y=4648.837mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.972mil|Location2.X=1466.638mil|Location1.Y=4641.17mil|Location2.Y=4648.837mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad H1-2(-16.098mm,17.275mm) on Multi-Layer And Text "VT1" (-14.788mm,15.368mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1467.262mil|Location2.X=1478.512mil|Location1.Y=4625.474mil|Location2.Y=4636.724mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1467.262mil|Location2.X=1478.512mil|Location1.Y=4625.474mil|Location2.Y=4636.724mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad H1-2(-16.098mm,17.275mm) on Multi-Layer And Track (-16.05mm,16.075mm)(-16.05mm,16.375mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1467.262mil|Location2.X=1478.512mil|Location1.Y=4683.512mil|Location2.Y=4694.762mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1467.262mil|Location2.X=1478.512mil|Location1.Y=4683.512mil|Location2.Y=4694.762mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad H1-2(-16.098mm,17.275mm) on Multi-Layer And Track (-16.05mm,18.175mm)(-16.05mm,18.475mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2014.957mil|Location2.X=2027.66mil|Location1.Y=4449.782mil|Location2.Y=4461.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2014.957mil|Location2.X=2027.66mil|Location1.Y=4449.782mil|Location2.Y=4461.032mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad LED1-2(-1.777mm,12.75mm) on Multi-Layer And Text "." (-1.82mm,12.255mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2027.748mil|Location2.X=2038.998mil|Location1.Y=4447.325mil|Location2.Y=4458.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2027.748mil|Location2.X=2038.998mil|Location1.Y=4447.325mil|Location2.Y=4458.575mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED1-2(-1.777mm,12.75mm) on Multi-Layer And Track (-1.825mm,11.55mm)(-1.825mm,11.85mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2027.748mil|Location2.X=2038.998mil|Location1.Y=4505.362mil|Location2.Y=4516.612mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2027.748mil|Location2.X=2038.998mil|Location1.Y=4505.362mil|Location2.Y=4516.612mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED1-2(-1.777mm,12.75mm) on Multi-Layer And Track (-1.825mm,13.65mm)(-1.825mm,13.95mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.265mil|Location2.X=2291.968mil|Location1.Y=3788.338mil|Location2.Y=3799.588mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2279.265mil|Location2.X=2291.968mil|Location1.Y=3788.338mil|Location2.Y=3799.588mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad LED2-2(4.202mm,-5.4mm) on Multi-Layer And Text "." (4.245mm,-4.905mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.474mil|Location2.X=2277.724mil|Location1.Y=3790.795mil|Location2.Y=3802.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.474mil|Location2.X=2277.724mil|Location1.Y=3790.795mil|Location2.Y=3802.045mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED2-2(4.202mm,-5.4mm) on Multi-Layer And Track (4.25mm,-4.5mm)(4.25mm,-4.2mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.474mil|Location2.X=2277.724mil|Location1.Y=3732.758mil|Location2.Y=3744.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.474mil|Location2.X=2277.724mil|Location1.Y=3732.758mil|Location2.Y=3744.008mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED2-2(4.202mm,-5.4mm) on Multi-Layer And Track (4.25mm,-6.6mm)(4.25mm,-6.3mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.091mil|Location2.X=1831.794mil|Location1.Y=4448.798mil|Location2.Y=4460.048mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1819.091mil|Location2.X=1831.794mil|Location1.Y=4448.798mil|Location2.Y=4460.048mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad LED3-2(-6.752mm,12.725mm) on Multi-Layer And Text "." (-6.795mm,12.23mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.548mil|Location2.X=1844.798mil|Location1.Y=4447.573mil|Location2.Y=4458.823mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1833.548mil|Location2.X=1844.798mil|Location1.Y=4447.573mil|Location2.Y=4458.823mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.254mm) Between Pad LED3-2(-6.752mm,12.725mm) on Multi-Layer And Text "R8" (-6.73mm,10.313mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1831.882mil|Location2.X=1843.132mil|Location1.Y=4446.34mil|Location2.Y=4457.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1831.882mil|Location2.X=1843.132mil|Location1.Y=4446.34mil|Location2.Y=4457.59mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED3-2(-6.752mm,12.725mm) on Multi-Layer And Track (-6.8mm,11.525mm)(-6.8mm,11.825mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1831.882mil|Location2.X=1843.132mil|Location1.Y=4504.378mil|Location2.Y=4515.628mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1831.882mil|Location2.X=1843.132mil|Location1.Y=4504.378mil|Location2.Y=4515.628mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED3-2(-6.752mm,12.725mm) on Multi-Layer And Track (-6.8mm,13.625mm)(-6.8mm,13.925mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.206mil|Location2.X=2284.872mil|Location1.Y=4119.147mil|Location2.Y=4126.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.206mil|Location2.X=2284.872mil|Location1.Y=4119.147mil|Location2.Y=4126.814mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad LED4-1(4.975mm,3.898mm) on Multi-Layer And Text "R11" (7.518mm,2.108mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2268.679mil|Location2.X=2279.929mil|Location1.Y=4240.879mil|Location2.Y=4253.582mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2268.679mil|Location2.X=2279.929mil|Location1.Y=4240.879mil|Location2.Y=4253.582mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad LED4-2(4.975mm,6.402mm) on Multi-Layer And Text "." (4.48mm,6.445mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.222mil|Location2.X=2277.472mil|Location1.Y=4228.089mil|Location2.Y=4239.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2266.222mil|Location2.X=2277.472mil|Location1.Y=4228.089mil|Location2.Y=4239.339mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED4-2(4.975mm,6.402mm) on Multi-Layer And Track (3.775mm,6.45mm)(4.075mm,6.45mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2324.26mil|Location2.X=2335.51mil|Location1.Y=4228.089mil|Location2.Y=4239.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2324.26mil|Location2.X=2335.51mil|Location1.Y=4228.089mil|Location2.Y=4239.339mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.176mm &lt; 0.254mm) Between Pad LED4-2(4.975mm,6.402mm) on Multi-Layer And Track (5.875mm,6.45mm)(6.175mm,6.45mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1412.199mil|Location2.X=1419.866mil|Location1.Y=4402.873mil|Location2.Y=4410.54mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1412.199mil|Location2.X=1419.866mil|Location1.Y=4402.873mil|Location2.Y=4410.54mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad R12-2(-18.4mm,11.275mm) on Bottom Layer And Text "U2" (-14.961mm,9.652mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1519.395mil|Location2.X=1530.645mil|Location1.Y=4395.143mil|Location2.Y=4406.393mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1519.395mil|Location2.X=1530.645mil|Location1.Y=4395.143mil|Location2.Y=4406.393mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.204mm &lt; 0.254mm) Between Pad R7-2(-14.104mm,11.275mm) on Bottom Layer And Text "U2" (-14.961mm,9.652mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.204mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1742.464mil|Location2.X=1753.714mil|Location1.Y=4370.725mil|Location2.Y=4381.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1742.464mil|Location2.X=1753.714mil|Location1.Y=4370.725mil|Location2.Y=4381.975mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.248mm &lt; 0.254mm) Between Pad R8-1(-9.4mm,9.1mm) on Bottom Layer And Text "R8" (-6.73mm,10.313mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.248mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1834.398mil|Location2.X=1845.648mil|Location1.Y=4370.76mil|Location2.Y=4382.01mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1834.398mil|Location2.X=1845.648mil|Location1.Y=4370.76mil|Location2.Y=4382.01mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.236mm &lt; 0.254mm) Between Pad R8-2(-6.55mm,9.1mm) on Bottom Layer And Text "R8" (-6.73mm,10.313mm) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2047.582mil|Location2.X=2058.832mil|Location1.Y=4319.377mil|Location2.Y=4330.627mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2047.582mil|Location2.X=2058.832mil|Location1.Y=4319.377mil|Location2.Y=4330.627mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.169mm &lt; 0.254mm) Between Pad U1-1(-1.7mm,8.7mm) on Top Layer And Text "." (-0.981mm,8.768mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.169mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1391.755mil|Location2.X=1399.421mil|Location1.Y=3910.61mil|Location2.Y=3918.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1391.755mil|Location2.X=1399.421mil|Location1.Y=3910.61mil|Location2.Y=3918.276mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U1-15(-18.21mm,-0.7mm) on Top Layer And Text "R2" (-19.57mm,-2.962mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.048mil|Location2.X=1459.298mil|Location1.Y=3919.678mil|Location2.Y=3930.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1448.048mil|Location2.X=1459.298mil|Location1.Y=3919.678mil|Location2.Y=3930.928mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.212mm &lt; 0.254mm) Between Pad U1-16(-16.94mm,-0.7mm) on Top Layer And Text "R1" (-16.316mm,-2.962mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.212mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.678mil|Location2.X=1438.345mil|Location1.Y=3909.546mil|Location2.Y=3917.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1430.678mil|Location2.X=1438.345mil|Location1.Y=3909.546mil|Location2.Y=3917.213mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U1-16(-16.94mm,-0.7mm) on Top Layer And Text "R2" (-19.57mm,-2.962mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.615mil|Location2.X=1480.281mil|Location1.Y=3919.543mil|Location2.Y=3927.209mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1472.615mil|Location2.X=1480.281mil|Location1.Y=3919.543mil|Location2.Y=3927.209mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U1-17(-15.67mm,-0.7mm) on Top Layer And Text "R1" (-16.316mm,-2.962mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1528.795mil|Location2.X=1536.461mil|Location1.Y=3913.191mil|Location2.Y=3920.857mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1528.795mil|Location2.X=1536.461mil|Location1.Y=3913.191mil|Location2.Y=3920.857mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U1-18(-14.4mm,-0.7mm) on Top Layer And Text "R1" (-16.316mm,-2.962mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2424.254mil|Location2.X=2431.921mil|Location1.Y=4310.812mil|Location2.Y=4318.479mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2424.254mil|Location2.X=2431.921mil|Location1.Y=4310.812mil|Location2.Y=4318.479mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-25(9.2mm,8.3mm) on Multi-Layer And Text "LED4" (2.632mm,7.738mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.083mil|Location2.X=1812.509mil|Location1.Y=3729.197mil|Location2.Y=3740.447mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1801.083mil|Location2.X=1812.509mil|Location1.Y=3729.197mil|Location2.Y=3740.447mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.034mm &lt; 0.254mm) Between Pad Z1-1(-8.1mm,-5.6mm) on Multi-Layer And Text "C4" (-9.77mm,-7.862mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.034mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAH0LZK4N4PHJPWKAKSWNODOJEPLJMBNIUQDDWBEBMLFH5NJBBKHC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.043mil|Location2.X=2032.293mil|Location1.Y=4430.398mil|Location2.Y=4443.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.043mil|Location2.X=2032.293mil|Location1.Y=4430.398mil|Location2.Y=4443.345mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Arc (-0.525mm,12.75mm) on Top Overlay And Text "." (-1.82mm,12.255mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1473.967mil|Location2.X=1485.217mil|Location1.Y=4700.439mil|Location2.Y=4713.386mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1473.967mil|Location2.X=1485.217mil|Location1.Y=4700.439mil|Location2.Y=4713.386mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Arc (-17.35mm,17.275mm) on Top Overlay And Text "." (-16.055mm,17.77mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1414.587mil|Location2.X=1425.837mil|Location1.Y=4578.001mil|Location2.Y=4589.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1414.587mil|Location2.X=1425.837mil|Location1.Y=4578.001mil|Location2.Y=4589.251mil|Absolute=True">Silk To Silk Clearance Constraint: (0.137mm &lt; 0.254mm) Between Arc (-17.35mm,17.275mm) on Top Overlay And Text "H1" (-16.382mm,15.137mm) on Top Overlay Silk Text to Silk Clearance [0.137mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1462.952mil|Location2.X=1470.619mil|Location1.Y=4711.147mil|Location2.Y=4718.814mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1462.952mil|Location2.X=1470.619mil|Location1.Y=4711.147mil|Location2.Y=4718.814mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Arc (-17.35mm,17.275mm) on Top Overlay And Text "VT1" (-14.788mm,15.368mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.179mil|Location2.X=2284.429mil|Location1.Y=3807.722mil|Location2.Y=3820.669mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.179mil|Location2.X=2284.429mil|Location1.Y=3807.722mil|Location2.Y=3820.669mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Arc (2.95mm,-5.4mm) on Top Overlay And Text "." (4.245mm,-4.905mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2213.596mil|Location2.X=2224.846mil|Location1.Y=3684.878mil|Location2.Y=3696.128mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2213.596mil|Location2.X=2224.846mil|Location1.Y=3684.878mil|Location2.Y=3696.128mil|Absolute=True">Silk To Silk Clearance Constraint: (0.158mm &lt; 0.254mm) Between Arc (2.95mm,-5.4mm) on Top Overlay And Text "LED2" (5.943mm,-7.559mm) on Top Overlay Silk Text to Silk Clearance [0.158mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.296mil|Location2.X=2262.243mil|Location1.Y=4234.793mil|Location2.Y=4246.043mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.296mil|Location2.X=2262.243mil|Location1.Y=4234.793mil|Location2.Y=4246.043mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Arc (4.975mm,5.15mm) on Top Overlay And Text "." (4.48mm,6.445mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.177mil|Location2.X=1836.427mil|Location1.Y=4429.414mil|Location2.Y=4442.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.177mil|Location2.X=1836.427mil|Location1.Y=4429.414mil|Location2.Y=4442.361mil|Absolute=True">Silk To Silk Clearance Constraint: (0.241mm &lt; 0.254mm) Between Arc (-5.5mm,12.725mm) on Top Overlay And Text "." (-6.795mm,12.23mm) on Top Overlay Silk Text to Silk Clearance [0.241mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.221mil|Location2.X=2032.471mil|Location1.Y=4436.973mil|Location2.Y=4448.223mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2021.221mil|Location2.X=2032.471mil|Location1.Y=4436.973mil|Location2.Y=4448.223mil|Absolute=True">Silk To Silk Clearance Constraint: (0.17mm &lt; 0.254mm) Between Text "." (-1.82mm,12.255mm) on Top Overlay And Track (-1.825mm,11.55mm)(-1.825mm,11.85mm) on Top Overlay Silk Text to Silk Clearance [0.17mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1487.17mil|Location2.X=1498.42mil|Location1.Y=4704.124mil|Location2.Y=4715.374mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1487.17mil|Location2.X=1498.42mil|Location1.Y=4704.124mil|Location2.Y=4715.374mil|Absolute=True">Silk To Silk Clearance Constraint: (0.012mm &lt; 0.254mm) Between Text "." (-16.055mm,17.77mm) on Top Overlay And Text "VT1" (-14.788mm,15.368mm) on Top Overlay Silk Text to Silk Clearance [0.012mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1473.789mil|Location2.X=1485.039mil|Location1.Y=4693.863mil|Location2.Y=4705.113mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1473.789mil|Location2.X=1485.039mil|Location1.Y=4693.863mil|Location2.Y=4705.113mil|Absolute=True">Silk To Silk Clearance Constraint: (0.17mm &lt; 0.254mm) Between Text "." (-16.055mm,17.77mm) on Top Overlay And Track (-16.05mm,18.175mm)(-16.05mm,18.475mm) on Top Overlay Silk Text to Silk Clearance [0.17mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.002mil|Location2.X=2284.252mil|Location1.Y=3801.147mil|Location2.Y=3812.397mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2273.002mil|Location2.X=2284.252mil|Location1.Y=3801.147mil|Location2.Y=3812.397mil|Absolute=True">Silk To Silk Clearance Constraint: (0.17mm &lt; 0.254mm) Between Text "." (4.245mm,-4.905mm) on Top Overlay And Track (4.25mm,-4.5mm)(4.25mm,-4.2mm) on Top Overlay Silk Text to Silk Clearance [0.17mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.871mil|Location2.X=2267.121mil|Location1.Y=4234.616mil|Location2.Y=4245.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.871mil|Location2.X=2267.121mil|Location1.Y=4234.616mil|Location2.Y=4245.866mil|Absolute=True">Silk To Silk Clearance Constraint: (0.17mm &lt; 0.254mm) Between Text "." (4.48mm,6.445mm) on Top Overlay And Track (3.775mm,6.45mm)(4.075mm,6.45mm) on Top Overlay Silk Text to Silk Clearance [0.17mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.354mil|Location2.X=1836.604mil|Location1.Y=4435.989mil|Location2.Y=4447.239mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.354mil|Location2.X=1836.604mil|Location1.Y=4435.989mil|Location2.Y=4447.239mil|Absolute=True">Silk To Silk Clearance Constraint: (0.17mm &lt; 0.254mm) Between Text "." (-6.795mm,12.23mm) on Top Overlay And Track (-6.8mm,11.525mm)(-6.8mm,11.825mm) on Top Overlay Silk Text to Silk Clearance [0.17mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2595.147mil|Location2.X=2602.814mil|Location1.Y=3972.397mil|Location2.Y=3980.064mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2595.147mil|Location2.X=2602.814mil|Location1.Y=3972.397mil|Location2.Y=3980.064mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C7" (11.024mm,0.025mm) on Top Overlay And Track (12.4mm,-0.096mm)(13.8mm,-0.096mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2595.147mil|Location2.X=2602.814mil|Location1.Y=4035.389mil|Location2.Y=4043.056mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2595.147mil|Location2.X=2602.814mil|Location1.Y=4035.389mil|Location2.Y=4043.056mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "C7" (11.024mm,0.025mm) on Top Overlay And Track (12.4mm,1.504mm)(13.8mm,1.504mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.972mil|Location2.X=1466.638mil|Location1.Y=4581.189mil|Location2.Y=4588.856mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1458.972mil|Location2.X=1466.638mil|Location1.Y=4581.189mil|Location2.Y=4588.856mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "H1" (-16.382mm,15.137mm) on Top Overlay And Text "VT1" (-14.788mm,15.368mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.647mil|Location2.X=2412.897mil|Location1.Y=4057.375mil|Location2.Y=4068.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.647mil|Location2.X=2412.897mil|Location1.Y=4057.375mil|Location2.Y=4068.625mil|Absolute=True">Silk To Silk Clearance Constraint: (0.065mm &lt; 0.254mm) Between Text "R11" (7.518mm,2.108mm) on Bottom Overlay And Track (7.81mm,-18.37mm)(7.81mm,17.19mm) on Bottom Overlay Silk Text to Silk Clearance [0.065mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1794.411mil|Location2.X=1805.661mil|Location1.Y=4370.758mil|Location2.Y=4382.008mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1794.411mil|Location2.X=1805.661mil|Location1.Y=4370.758mil|Location2.Y=4382.008mil|Absolute=True">Silk To Silk Clearance Constraint: (0.236mm &lt; 0.254mm) Between Text "R8" (-6.73mm,10.313mm) on Bottom Overlay And Track (-8.475mm,9.85mm)(-7.475mm,9.85mm) on Bottom Overlay Silk Text to Silk Clearance [0.236mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1469.277mil|Location2.X=1476.944mil|Location1.Y=4620.852mil|Location2.Y=4628.518mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1469.277mil|Location2.X=1476.944mil|Location1.Y=4620.852mil|Location2.Y=4628.518mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "VT1" (-14.788mm,15.368mm) on Top Overlay And Track (-16.05mm,16.075mm)(-16.05mm,16.375mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1469.277mil|Location2.X=1476.944mil|Location1.Y=4703.529mil|Location2.Y=4711.195mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1469.277mil|Location2.X=1476.944mil|Location1.Y=4703.529mil|Location2.Y=4711.195mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 0.254mm) Between Text "VT1" (-14.788mm,15.368mm) on Top Overlay And Track (-16.05mm,18.175mm)(-16.05mm,18.475mm) on Top Overlay Silk Text to Silk Clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDU4GJ5OH2ZTDKBVBTLSB1NJUK2G4G2GJTGFG0RLBMKWNBNA4Y3ZLL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2031.933mil|Location2.X=2055.522mil|Location1.Y=3896.697mil|Location2.Y=3930.896mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2031.933mil|Location2.X=2055.522mil|Location1.Y=3896.697mil|Location2.Y=3930.896mil|Absolute=True">Net Antennae: Track (-1.64mm,-4.14mm)(-1.64mm,-1.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2812.051mil|Location2.X=2835.64mil|Location1.Y=3230.358mil|Location2.Y=3264.558mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2812.051mil|Location2.X=2835.64mil|Location1.Y=3230.358mil|Location2.Y=3264.558mil|Absolute=True">Net Antennae: Track (14.2mm,-18.825mm)(18.175mm,-18.825mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\%D0%A2%D0%BE%D0%BF%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F %D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BD%D0%BE%D0%B9 %D0%BF%D0%BB%D0%B0%D1%82%D1%8BV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1981.933mil|Location2.X=2005.522mil|Location1.Y=3896.697mil|Location2.Y=3930.896mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\git\ACCP--404-19\AltiumDesignerProject\Топология печатной платыV2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1981.933mil|Location2.X=2005.522mil|Location1.Y=3896.697mil|Location2.Y=3930.896mil|Absolute=True">Net Antennae: Track (-2.91mm,-3.39mm)(-2.91mm,-1.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
