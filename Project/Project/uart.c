@@ -1,6 +1,6 @@
 ﻿#include <xc.h>
 #include <avr/delay.h>
-#include "save.h"
+#include "save.h" // Созданная нами библиотека
 #include <avr/interrupt.h>
 
 volatile uint8_t rx_buffer[2]; //Массив для записи температуры, полученной с компьютера
@@ -12,20 +12,39 @@ volatile uint8_t tx_buffer_index = 0;
 //Оставить до испытания
 
 uint8_t Data_to_share = 0; //Температура, отправляемая в блок commands
+uint8_t start_stop = 0; //Переменная для включения-выключения работы программы датчика температуры с компьютера (0 - выключена, 1 - включена)
 
 ISR(USART_RX_vect)
-{
-	uint8_t data = UDR0 - '0';
-	rx_buffer[rx_buffer_index] = data;
-	rx_buffer_index++;
-	if (rx_buffer_index == 2)
+{	
+	uint8_t data = UDR0 - '0'; // Записываем данные полученные с компьютера и переводим их в численное значение
+	int Data_s_t = UDR0;
+	if (Data_s_t == 's') // Если с компьютера приходит символ s увеличиваем/уменьшаем значение start_stop (включаем/выключаем программу работы с датчиком)
 	{
-		rx_buffer_index = 0;
+		start_stop++;
+		if (start_stop > 1)
+		{
+			start_stop = 0;
+		}
+		
+	}
+	else // Если с компьютера приходит любое другое значение, расцениваем его, как температуру
+	{
+		rx_buffer[rx_buffer_index] = data;
+		rx_buffer_index++;
+		if (rx_buffer_index == 2)
+		{
+			rx_buffer_index = 0;
+		}
 	}
 	
 }
 
-void USART_Init(unsigned int UBRR)
+uint8_t start_stop_allow() // Функция для передачи значения start_stop в другие модули
+{
+	return start_stop;
+}
+
+void USART_Init(unsigned int UBRR) // Функция инициализации ЮСАРТа
 {
 	// Устанавливаем скорость передачи
 	UBRR0H = (unsigned char)(UBRR>>8);
@@ -35,7 +54,8 @@ void USART_Init(unsigned int UBRR)
 	UCSR0C = (1<<USBS0)|(3<<UCSZ00); // 8 bit, 1 stopbit
 }
 
-void send(uint8_t data) {
+void send(uint8_t data) // Функция отправки данных по ЮСАРТ
+{
 	
 	if(data < 0) //Если значение температуры отрицательное, добавляем перед ним минус
 	{
