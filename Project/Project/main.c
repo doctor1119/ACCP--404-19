@@ -18,13 +18,12 @@ int main(void)
 	uint8_t last_temperature = 0;
 	while (1)
 	{
-		
-		
+		_delay_ms(1000); // костыль-задержка, чтобы функция uart_read успела правильно сформировать данные
 		uint8_t temp_to_command = uart_read(); // Записываем значение температуры, полученное с компьютера, в переменную temp_to_command
 		if(last_temperature != temp_to_command) // Если температура, получаемая с компьютера, изменилась
 		{
 		command(temp_to_command); // Отправляем значение полученной с компьютера температуры в блок commands
-		last_temperature = temp_to_command;
+		last_temperature = temp_to_command; // Записываем в last_temperature последнее отправленное значение температуры для следующей проверки
 		}
 		
 	}
