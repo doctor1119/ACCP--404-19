@@ -1,12 +1,11 @@
 ﻿#ifndef TEMP_SENSOR_H
 #define TEMP_SENSOR_H
 
-#define F_CPU 8000000UL
+#define F_CPU 16000000UL
 #define F_SCL 100000UL
 #define BAUD_RATE 9600
 #define UBRR_VALUE F_CPU/BAUD_RATE/16 - 1
-#define ADDR_W 0b10010001
-#define ADDR_R 0b10010000
+
 
 
 void temp_sensor_init(void);

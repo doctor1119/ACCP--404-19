@@ -1,24 +1,29 @@
 ﻿#include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
-#include "save.h" // Созданная нами библиотека
+#include <util/delay.h> //для задержек
+#include <util/twi.h>
+#include "temp_sensor.h"
 
-//#define LM75A_ADDR 0x48
-#define ADDR_W 0b10010001 // Адрес датчика температуры для записи
-#define ADDR_R 0b10010000 // Адрес датчика температуры для считывания
+#define F_SCL 100000UL
+#define LM75A_ADDR 0x48
+#define ADDR_W 0b1001000 //0x90  // Адрес датчика температуры для записи
+#define ADDR_R 0b1001000 // Адрес датчика температуры для считывания
 
 float current_temp = 0; // Значение температуры
 
 void temp_sensor_init(void) // Функция инициализации датчика температуры и установки таймера
 {
 	// Инициализация датчика температуры
-	TWSR = 0;
+	TWSR = 0x00;
 	TWBR = ((F_CPU / F_SCL) - 16) / 2;
+	TWCR = (1 << TWEN);
 
 	// Установка прерывания по таймеру раз в секунду
 	TCCR1B |= (1 << WGM12) | (1 << CS12) | (1 << CS10);
 	OCR1A = 15624;
 	TIMSK1 |= (1 << OCIE1A);
+ 
 }
 
 void TWI_WAIT(void) // Ожидание окончания предыдущей операции
@@ -28,86 +33,79 @@ void TWI_WAIT(void) // Ожидание окончания предыдущей 
 
 void TWI_START(void) // Начало общение с датчиком
 {
-	TWCR = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);
+	TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
+	while (!(TWCR & (1 << TWINT)));
 }
 
-void TWI_SEND(unsigned char Data) // Отправка информации на датчик 
+void TWI_SEND(uint8_t Data) // Отправка информации на датчик 
 {
 	TWDR = Data;
-	TWCR = (1<<TWINT) | (1<<TWEN);
+	TWCR = (1 << TWINT) | (1 << TWEN);
+	while (!(TWCR & (1 << TWINT)));
 }
 
 void TWI_STOP(void) // Окончание работы с датчиком
 {
-	TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTO);
+	TWCR = (1 << TWINT) | (1 << TWSTO) | (1 << TWEN); 
 }
 
-uint8_t TWI_READ_ACK(void) // Считываем часть данных, отправленных датчиком, и ждем вторую часть данных
+uint8_t TWI_READ(uint8_t ack) // Считываем часть данных, отправленных датчиком, и ждем вторую часть данных
 {
-	uint8_t data;
-	TWCR = (1<<TWINT) | (1<<TWEA) | (1<<TWEN);
-	TWI_WAIT();
-	data = TWDR;
-	return data;
-}
-
-uint8_t TWI_READ_NACK(void) // Считываем данные, отправленные датчиком, и заканчиваем общение
-{
-	uint8_t data;
-	TWCR &= ~(1<<TWEA);
-	TWCR =(1<<TWINT) | (1<<TWEN);
-	TWI_WAIT();
-	data = TWDR;
-	return data;
 	
+	TWCR = (1 << TWINT) | (ack << TWEA) | (1 << TWEN);
+	while (!(TWCR & (1 << TWINT)));
+	return TWDR;
 }
+
+
 
 ISR(TIMER1_COMPA_vect) // Прерывание по таймеру
 {
 	uint8_t start_stop = start_stop_allow(); // Считываем значение start_stop
-	if(start_stop == 1) // Если значение start_stop рано единице, то разрешаем работу с датчиком, если - 0, то запрещаем работу с датчиком
-	{
+	//if(start_stop == 1) // Если значение start_stop рано единице, то разрешаем работу с датчиком, если - 0, то запрещаем работу с датчиком
+	//{
 		temp_sensor_read(); // Функция общения с датчиком температуры 
-	}
+	//}
 }
 
 void Write_to_USART(float celsius_temperature) // Функция для перевода в целочисленное значение и отправки температуры, полученной с датчика, через ЮСАРТ на компьютер 
 {
+	
 	celsius_temperature = celsius_temperature/1;
-	uint8_t temp = (uint8_t)celsius_temperature;
+	uint8_t temp = 0;
+	temp = (uint8_t)celsius_temperature;
 	send(temp);
 }
 
 	void temp_sensor_read(void) // Функция общения с датчиком температуры
 	{
 		
-		TWI_START();
-		TWI_WAIT();
-		TWI_SEND(ADDR_W);
-		TWI_WAIT();
-		TWI_SEND(0x00);
-		//TWI_WAIT(); // stop here // пока оставить
 		
+		 int16_t tempr = 0;
+		 
+		 //int temperature;
 
-		TWI_START();
-		TWI_WAIT();
-		TWI_SEND(ADDR_R);
-		TWI_WAIT();
-		
-		TWI_WAIT();
-		uint8_t msb = TWI_READ_ACK(); // Переменная для записи первого пакета данных с датчика
-		TWI_WAIT();
-		uint8_t lsb = TWI_READ_NACK(); // Переменная для записи второго пакета данных с датчика
-		TWI_WAIT();
-		TWI_STOP();
+		 /*TWI_START();
+		 TWI_SEND(LM75A_ADDR<< 1);
+		 TWI_SEND(0x00);
+		 TWI_STOP();
 
-		// Объединяем два полученных пакета в одной переменной
-		int16_t temperature = (msb << 8) | lsb;
-		temperature = (int16_t)(temperature << 7) >> 7;
-		float celsius_temperature = (float)temperature * 0.125;
+		 _delay_ms(100); // Даем датчику время на измерение температуры
+*/
+		 TWI_START();
+		 TWI_SEND((LM75A_ADDR << 1) | 0x01);
+		 uint8_t msb = TWI_READ(1);
+		 uint8_t lsb = TWI_READ(0);
+		 TWI_STOP();
+
 		
-		current_temp = celsius_temperature;	 // Записываем полученную с датчика температуру в глобальную переменную для возможной дальнейшей работы
-		
-		Write_to_USART(celsius_temperature); //Отправляем полученную температуру в ЮСАРТ
-		
+		tempr = ((msb << 8) | lsb) >> 5;
+		float celsius_temperature = (uint8_t)tempr* 0.125;
+		//celsius_temperature = (int16_t)(celsius_temperature << 7) >> 7;
+
+		Write_to_USART(celsius_temperature);
 	}
+	
+	
+	
+	

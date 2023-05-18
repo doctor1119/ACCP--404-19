@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="Project.elf">                 
+  <executable name="CommandsPWM.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>1868</used>                     
-      <free>30900</free>                     
+      <used>431</used>                     
+      <free>32337</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
       <length>2048</length>                 
-      <used>6</used>                     
-      <free>2042</free>                     
+      <used>7</used>                     
+      <free>2041</free>                     
     </memory>                              
   </executable>                            
 </project>                                 

@@ -107,6 +107,9 @@
     <Compile Include="commands.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="commands.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -116,7 +119,13 @@
     <Compile Include="temp_sensor.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="temp_sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

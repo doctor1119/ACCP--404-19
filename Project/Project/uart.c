@@ -1,7 +1,11 @@
 ﻿#include <xc.h>
 #include <avr/delay.h>
-#include "save.h" // Созданная нами библиотека
 #include <avr/interrupt.h>
+#include "uart.h"
+
+#define F_CPU 16000000UL
+#define BAUD_RATE 9600
+#define UBRR_VALUE F_CPU/BAUD_RATE/16 - 1
 
 volatile uint8_t rx_buffer[1]; //Массив для записи температуры, полученной с компьютера
 volatile uint8_t rx_buffer_index = 0; //Индекс массива для записи температуры, полученной с компьютера
@@ -13,6 +17,7 @@ volatile uint8_t tx_buffer_index = 0;
 
 uint8_t Data_to_share = 0; //Температура, отправляемая в блок commands
 uint8_t start_stop = 0; //Переменная для включения-выключения работы программы датчика температуры с компьютера (0 - выключена, 1 - включена)
+uint8_t overwriting(uint8_t data);
 
 ISR(USART_RX_vect)
 {	
@@ -56,11 +61,11 @@ void USART_Init(unsigned int UBRR) // Функция инициализации 
 
 void send(uint8_t data) // Функция отправки данных по ЮСАРТ
 {	
-	if(data > 0)//Если значение температуры положительное, добавляем перед ним плюс
+	/*if(data > 0)//Если значение температуры положительное, добавляем перед ним плюс
 	{
 		while (!(UCSR0A & (1<<UDRE0))); // Проверяем буфер перед отправкой
 		UDR0 = '+'; //Записываем мплюс в буфер для отправки
-	}
+	}*/
 	data = fabs(data); // Берем модуль от значения температуры
 	data = overwriting(data); //Переписываем значение температуры 1234 -> 4321. Так надо.
 	uint8_t c; // В c будем записывать по очереди цифры из data для отправки через ЮСАРТ

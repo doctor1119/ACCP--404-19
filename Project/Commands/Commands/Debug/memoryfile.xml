@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <project>                                  
-  <executable name="Project.elf">                 
+  <executable name="Commands.elf">                 
     <memory name="program">              
       <units>bytes</units>                 
       <length>32768</length>                 
-      <used>1868</used>                     
-      <free>30900</free>                     
+      <used>498</used>                     
+      <free>32270</free>                     
     </memory>                              
     <memory name="data">                 
       <units>bytes</units>                 
