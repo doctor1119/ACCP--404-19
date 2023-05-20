@@ -14,9 +14,14 @@ int main(void)
 	USART_Init(UBRR_VALUE); //инициализация UART
 	temp_sensor_init();//инициализация датчика температуры
 	uint8_t last_temperature = 0;
+	setupPWM();
+	
 	while (1)
 	{
-		command(12);
+		int t = uart_read();
+		//send(t);
+		_delay_ms(10000);
+		
 		/*_delay_ms(1000); // костыль-задержка, чтобы функция uart_read успела правильно сформировать данные
 		uint8_t temp_to_command = uart_read(); // Записываем значение температуры, полученное с компьютера, в переменную temp_to_command
 		if(last_temperature != temp_to_command) // Если температура, получаемая с компьютера, изменилась

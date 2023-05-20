@@ -11,7 +11,7 @@ volatile uint8_t rx_buffer[1]; //Массив для записи темпера
 volatile uint8_t rx_buffer_index = 0; //Индекс массива для записи температуры, полученной с компьютера
 
 //Оставить до испытания
-volatile uint8_t tx_buffer[3];
+volatile uint8_t tx_buffer[3] = {0, 0, 0};
 volatile uint8_t tx_buffer_index = 0;
 //Оставить до испытания
 
@@ -21,9 +21,9 @@ uint8_t overwriting(uint8_t data);
 
 ISR(USART_RX_vect)
 {	
-	int Data_s_t = UDR0; // Записываем данные, полученные с компьютера
+	char Data_s_t = UDR0; // Записываем данные, полученные с компьютера
 	
-	if (Data_s_t == 's')// Если с компьютера приходит символ s увеличиваем/уменьшаем значение start_stop (включаем/выключаем программу работы с датчиком)
+	/*if (Data_s_t == 's')// Если с компьютера приходит символ s увеличиваем/уменьшаем значение start_stop (включаем/выключаем программу работы с датчиком)
 	{
 		start_stop++;
 		if (start_stop > 1)
@@ -32,16 +32,21 @@ ISR(USART_RX_vect)
 		}
 	}
 	else // Если с компьютера приходит любое другое значение, расцениваем его, как температуру
-	{
-		uint8_t data = Data_s_t - '0'; // Переводим данные, полученные с компьютера, в численное значение
-
-		rx_buffer[rx_buffer_index] = data;
-		rx_buffer_index++;
-		if (rx_buffer_index != 1 && rx_buffer_index != 2)
-		{
+	{*/
+		uint8_t data = atoi(Data_s_t); // Переводим данные, полученные с компьютера, в численное значение
+		
+		rx_buffer[rx_buffer_index] = (uint8_t)Data_s_t  + 1;
+		while (!(UCSR0A & (1<<UDRE0))); // Проверяем буфер перед отправкой
+		UDR0 = rx_buffer[rx_buffer_index];
+		
+		if (rx_buffer_index == 1)
+		{			
 			rx_buffer_index = 0;
+			Data_to_share = rx_buffer[0]*10 + rx_buffer[1];
 		}
-	}
+		rx_buffer_index++;
+	//}
+	
 }
 
 uint8_t start_stop_allow() // Функция для передачи значения start_stop в другие модули
@@ -61,11 +66,6 @@ void USART_Init(unsigned int UBRR) // Функция инициализации 
 
 void send(uint8_t data) // Функция отправки данных по ЮСАРТ
 {	
-	/*if(data > 0)//Если значение температуры положительное, добавляем перед ним плюс
-	{
-		while (!(UCSR0A & (1<<UDRE0))); // Проверяем буфер перед отправкой
-		UDR0 = '+'; //Записываем мплюс в буфер для отправки
-	}*/
 	data = fabs(data); // Берем модуль от значения температуры
 	data = overwriting(data); //Переписываем значение температуры 1234 -> 4321. Так надо.
 	uint8_t c; // В c будем записывать по очереди цифры из data для отправки через ЮСАРТ
@@ -134,7 +134,8 @@ uint8_t overwriting(uint8_t data) // Функция, которая перепи
 
 uint8_t uart_read(void)
 {
-	Data_to_share = rx_buffer[0]*10 + rx_buffer[1]; // записываем значение полученной с компьютера температуры в целочисленную переменную для отправки в блок commands
+	//Data_to_share = rx_buffer[0]*10 + rx_buffer[1]; // записываем значение полученной с компьютера температуры в целочисленную переменную для отправки в блок commands
+
 	return Data_to_share;
 }
 

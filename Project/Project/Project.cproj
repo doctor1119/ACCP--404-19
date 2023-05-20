@@ -113,9 +113,6 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="save.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="temp_sensor.c">
       <SubType>compile</SubType>
     </Compile>

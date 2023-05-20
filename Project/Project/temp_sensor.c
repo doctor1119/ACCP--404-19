@@ -14,6 +14,7 @@ float current_temp = 0; // Значение температуры
 
 void temp_sensor_init(void) // Функция инициализации датчика температуры и установки таймера
 {
+	send(1);
 	// Инициализация датчика температуры
 	TWSR = 0x00;
 	TWBR = ((F_CPU / F_SCL) - 16) / 2;
@@ -79,31 +80,22 @@ void Write_to_USART(float celsius_temperature) // Функция для пере
 
 	void temp_sensor_read(void) // Функция общения с датчиком температуры
 	{
-		
+		send(2);
 		
 		 int16_t tempr = 0;
 		 
-		 //int temperature;
-
-		 /*TWI_START();
-		 TWI_SEND(LM75A_ADDR<< 1);
-		 TWI_SEND(0x00);
-		 TWI_STOP();
-
-		 _delay_ms(100); // Даем датчику время на измерение температуры
-*/
 		 TWI_START();
 		 TWI_SEND((LM75A_ADDR << 1) | 0x01);
 		 uint8_t msb = TWI_READ(1);
+		 
 		 uint8_t lsb = TWI_READ(0);
 		 TWI_STOP();
 
-		
 		tempr = ((msb << 8) | lsb) >> 5;
 		float celsius_temperature = (uint8_t)tempr* 0.125;
-		//celsius_temperature = (int16_t)(celsius_temperature << 7) >> 7;
 
 		Write_to_USART(celsius_temperature);
+		
 	}
 	
 	
