@@ -18,7 +18,7 @@ temp_sensor.d temp_sensor.o: .././temp_sensor.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h \
- .././temp_sensor.h
+ .././temp_sensor.h .././uart.h
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\io.h:
 
@@ -59,3 +59,5 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\twi.h:
 
 .././temp_sensor.h:
+
+.././uart.h:

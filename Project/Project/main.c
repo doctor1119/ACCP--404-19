@@ -1,9 +1,13 @@
 ﻿#include <avr/io.h> //для работы с регистрами ввода/вывода
 #include <util/delay.h> //для задержек
 #include <avr/interrupt.h> //для работы с прерываниями
+#include <stdio.h>
+#include <util/twi.h>
 #include "temp_sensor.h"
 #include "uart.h"
 #include "commands.h"
+
+#define F_CPU 16000000UL
 
 
 
@@ -15,21 +19,10 @@ int main(void)
 	temp_sensor_init();//инициализация датчика температуры
 	uint8_t last_temperature = 0;
 	setupPWM();
-	
+	command(18); //Для отладки модуля commands
 	while (1)
 	{
-		int t = uart_read();
-		//send(t);
-		_delay_ms(10000);
-		
-		/*_delay_ms(1000); // костыль-задержка, чтобы функция uart_read успела правильно сформировать данные
-		uint8_t temp_to_command = uart_read(); // Записываем значение температуры, полученное с компьютера, в переменную temp_to_command
-		if(last_temperature != temp_to_command) // Если температура, получаемая с компьютера, изменилась
-		{
-		command(temp_to_command); // Отправляем значение полученной с компьютера температуры в блок commands
-		last_temperature = temp_to_command; // Записываем в last_temperature последнее отправленное значение температуры для следующей проверки
-		}*/
-		
+			
 	}
 }
 

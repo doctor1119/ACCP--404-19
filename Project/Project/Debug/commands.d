@@ -1,4 +1,4 @@
-commands.d commands.o: .././commands.c \
+commands.d commands.o: .././commands.c .././commands.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\inttypes.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\features.h \
@@ -15,8 +15,9 @@ commands.d commands.o: .././commands.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h \
- .././commands.h
+ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h
+
+.././commands.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h:
 
@@ -51,5 +52,3 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\interrupt.h:
-
-.././commands.h:
