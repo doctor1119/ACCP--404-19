@@ -1,0 +1,37 @@
+Removed Pin From Net: NetName=NetR7_1 Pin=X3-3
+Removed Pin From Net: NetName=NetR8_1 Pin=X3-4
+Removed Member From Class: ClassName=Схема принципиальная ПУК-404-19 Member=X3
+Change Component Footprint: Designator=ATM1 Old Footprint=ATmega328/P New Footprint=27_DIP_7.62mm
+Change Component Comment : Designator=R1 Old Comment=27kOm New Comment=27Om
+Change Component Comment : Designator=R2 Old Comment=27kOm New Comment=27Om
+Change Component Designator: OldDesignator=ATM1 NewDesignator=U3
+Change component parameters: Designator = "R1" ("R1"); Footprint = "R_1206"; UniqueID = "\LXMIASCN" ("\LXMIASCN")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-27-om-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R2" ("R2"); Footprint = "R_1206"; UniqueID = "\MQNPVTUT" ("\MQNPVTUT")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.chipdip.ru/product/0.25w-1206-27-om-1"; VariantName = "[No Variations]"
+Change component parameters: Designator = "ATM1" ("ATM1"); Footprint = "ATmega328/P"; UniqueID = "\FIGHJMMB" ("\FIGHJMMB")
+Added Pin To Net: NetName=VCC Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=VCC Pin=R7-2
+Added Pin To Net: NetName=VCC Pin=R8-2
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=GND Pin=U2-5
+Added Pin To Net: NetName=GND Pin=U2-6
+Added Pin To Net: NetName=GND Pin=U2-7
+Added Pin To Net: NetName=VCC Pin=U2-8
+Added Pin To Net: NetName=NetR8_1 Pin=U3-27
+Added Pin To Net: NetName=NetR7_1 Pin=U3-28
+Change Net Name : Old Net Name=NetATM1_1 New Net Name=NetR9_2
+Change Net Name : Old Net Name=NetATM1_2 New Net Name=NetLED3_2
+Change Net Name : Old Net Name=NetATM1_3 New Net Name=NetLED1_2
+Change Net Name : Old Net Name=NetATM1_9 New Net Name=NetC6_2
+Change Net Name : Old Net Name=NetATM1_10 New Net Name=NetC5_2
+Change Net Name : Old Net Name=NetATM1_17 New Net Name=NetU3_17
+Change Net Name : Old Net Name=NetATM1_18 New Net Name=NetU3_18
+Change Net Name : Old Net Name=NetATM1_19 New Net Name=NetR11_1
+Change Net Name : Old Net Name=NetATM1_21 New Net Name=NetC7_1
+Added Pin To Net: NetName=NetR10_1 Pin=R10-1
+Added Pin To Net: NetName=NetR10_1 Pin=U3-11
+Added Net: Name=NetR10_1

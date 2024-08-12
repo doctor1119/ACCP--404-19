@@ -1,0 +1,3 @@
+Change component parameters: Designator = "VT1" ("VT1"); Footprint = "TO-92-CBE"; UniqueID = "\DIBNKHRO" ("\DIBNKHRO")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "link"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = ""; VariantName = "[No Variations]"
